@@ -11,10 +11,10 @@ int main()
     Police officerTed { "Ted" };
     Police officerJon { "Jon" };
     
-    Subject alarm;
-    alarm.addObserver(&fido);
-    alarm.addObserver(&officerTed);
-    alarm.addObserver(&officerJon);
+    Alarm homeAlarm;
+    homeAlarm.addObserver(&fido);
+    homeAlarm.addObserver(&officerTed);
+    homeAlarm.addObserver(&officerJon);
 
-    alarm.event();
+    homeAlarm.ring();
 }

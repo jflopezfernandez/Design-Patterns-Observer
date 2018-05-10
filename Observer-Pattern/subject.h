@@ -1,6 +1,7 @@
 #ifndef OP_SUBJECT_H_
 #define OP_SUBJECT_H_
 
+#include <string>
 #include <vector>
 
 class Observer;
@@ -18,7 +19,21 @@ public:
 
     void removeObserver(Observer *observer);
 
-    void event();
+    virtual void event();
+};
+
+class Alarm : public Subject
+{
+    std::string name_;
+
+public:
+    Alarm() : name_("<Untitled Alarm>") { }
+
+    Alarm(const std::string_view& str) : name_(str) { }
+
+    std::string name() const noexcept { return name_; }
+
+    void ring() { event(); }
 };
 
 #endif // OP_SUBJECT_H_
